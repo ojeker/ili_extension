@@ -1,0 +1,46 @@
+INTERLIS 2.3;
+
+MODEL Jek_Base (de)
+AT "https://www.so.ch"
+VERSION "2020-10-28"  =
+
+  TOPIC TSealed =
+
+    CLASS CSealed =
+      Name : TEXT;
+    END CSealed;
+
+  END TSealed;
+
+  TOPIC TBase =
+
+    CLASS CBase =
+      Name : TEXT;
+    END CBase;
+
+  END TBase;
+
+END Jek_Base.
+
+MODEL Jek_Extended (de)
+AT "https://www.so.ch"
+VERSION "2020-10-28"  =
+  IMPORTS Jek_Base;
+
+  TOPIC TExtended EXTENDS Jek_Base.TBase =
+
+    CLASS CExtended EXTENDS Jek_Base.TBase.CBase =
+      DescExt : TEXT;
+    END CExtended;
+
+  END TExtended;
+
+  TOPIC TOuterOnly =
+
+    CLASS COuterOnly =
+      Name : TEXT;
+    END COuterOnly;
+
+  END TOuterOnly;
+
+END Jek_Extended.
